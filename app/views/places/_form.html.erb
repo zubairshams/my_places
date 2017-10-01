@@ -7,7 +7,13 @@
   <fieldset class="form-group">
     <%= f.label :public, 'Is public place' %>
     <%= f.check_box :public %>
-  </fieldset>  
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :share, 'Share with friends' %>
+    <%= f.collection_check_boxes(:shared_user_ids, current_user.friends, :id, :email) %>
+  </fieldset>
+   
 
   <fieldset class="form-group">
     <%= f.label :address, 'Address' %>

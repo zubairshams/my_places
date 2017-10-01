@@ -13,6 +13,13 @@
   <%= @place.latitude %> <%= @place.longitude %>
 </p>
 
+<p>
+  <strong>Shared with friends:</strong>
+  <% @place.shared_users.each do |user| %>
+    <%= user.email %>
+  <% end %>
+</p>
+
 <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&markers=#{@place.latitude},#{@place.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
               class: 'img-fluid img-rounded', alt: "#{@place.title} on the map"%>
 

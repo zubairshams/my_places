@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :places
   has_many :friendships
   has_many :friends, through: :friendships
+  has_and_belongs_to_many :shared_places, class_name: 'Place', join_table: 'users_places'
 end
