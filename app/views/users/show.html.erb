@@ -1,0 +1,27 @@
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<strong>Places Shared</strong>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.places.public_places.each do |place| %>
+      <tr>
+        <td><%= place.title %></td>
+        <td><%= place.address %></td>
+        <td>
+          <%= link_to 'Show', place, title: 'Show', class: 'btn-link' %>
+        </td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>

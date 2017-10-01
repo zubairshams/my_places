@@ -5,10 +5,15 @@ jQuery ->
 
   window.initMap = ->
     if $('#map').size() > 0
-      map = new google.maps.Map $('#map')[0], {
-        center: {lat: 1.290270, lng: 103.851959}
-        zoom: 8
+      latLng = { 
+        lat: parseFloat(lat_field.val()) || 1.290270,
+        lng: parseFloat(lng_field.val()) || 103.851959 
       }
+      map = new google.maps.Map $('#map')[0], {
+        center: latLng
+        zoom: 15
+      }
+      placeMarkerAndPanTo latLng, map
 
       map.addListener 'click', (e) ->
         placeMarkerAndPanTo e.latLng, map
@@ -17,8 +22,8 @@ jQuery ->
       $('#find-on-map').click (e) ->
         e.preventDefault()
         placeMarkerAndPanTo {
-          lat: parseInt lat_field.val(), 10
-          lng: parseInt lng_field.val(), 10
+          lat: parseFloat lat_field.val(), 10
+          lng: parseFloat lng_field.val(), 10
         }, map
 
   placeMarkerAndPanTo = (latLng, map) ->

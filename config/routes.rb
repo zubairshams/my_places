@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :places
+  resources :users, only: [:show]
 
 
   # You can have the root of your site routed with "root"

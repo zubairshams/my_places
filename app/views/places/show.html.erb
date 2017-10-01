@@ -1,3 +1,5 @@
+<%= link_to 'Edit', edit_place_path(@place), class: 'pull-right' if @place.user == current_user %>
+
 <p>
   <strong>Title:</strong>
   <%= @place.title %>
@@ -20,8 +22,7 @@
   <% end %>
 </p>
 
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&markers=#{@place.latitude},#{@place.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
-              class: 'img-fluid img-rounded', alt: "#{@place.title} on the map"%>
+<%= hidden_field_tag :place_latitude, @place.latitude %>
+<%= hidden_field_tag :place_longitude, @place.longitude %>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<div id="map" style="width:700px; height:500px; margin-left:80px;"></div>
