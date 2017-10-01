@@ -5,6 +5,11 @@
   </fieldset>
 
   <fieldset class="form-group">
+    <%= f.label :public, 'Is public place' %>
+    <%= f.check_box :public %>
+  </fieldset>  
+
+  <fieldset class="form-group">
     <%= f.label :address, 'Address' %>
     <%= f.text_field :address, class: "form-control" %>
   </fieldset>

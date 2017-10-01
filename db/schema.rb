@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001073410) do
+ActiveRecord::Schema.define(version: 20171001094302) do
 
   create_table "places", force: :cascade do |t|
     t.string   "title"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20171001073410) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "public",     default: false
   end
 
   add_index "places", ["user_id"], name: "index_places_on_user_id"
