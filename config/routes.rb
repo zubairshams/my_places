@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :places
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    get :shared_places, on: :collection
+  end
 
 
   # You can have the root of your site routed with "root"

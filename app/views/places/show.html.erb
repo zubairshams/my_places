@@ -15,12 +15,14 @@
   <%= @place.latitude %> <%= @place.longitude %>
 </p>
 
-<p>
-  <strong>Shared with friends:</strong>
-  <% @place.shared_users.each do |user| %>
-    <%= user.email %>
-  <% end %>
-</p>
+<% unless @place.public %>
+  <p>
+    <strong>Shared with friends:</strong>
+    <% @place.shared_users.each do |user| %>
+      <%= user.email %>
+    <% end %>
+  </p>
+<% end %>
 
 <%= hidden_field_tag :place_latitude, @place.latitude %>
 <%= hidden_field_tag :place_longitude, @place.longitude %>
