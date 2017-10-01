@@ -9,5 +9,31 @@
     <%= f.text_field :address, class: "form-control" %>
   </fieldset>
 
+  <div class="form-group row">
+    <div class="col-sm-1">
+      <%= f.label :latitude %>
+    </div>
+
+    <div class="col-sm-3">
+      <%= f.text_field :latitude, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-1">
+      <%= f.label :longitude %>
+    </div>
+
+    <div class="col-sm-3">
+      <%= f.text_field :longitude, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-4">
+      <a href="#" id="find-on-map" class="btn btn-info btn-sm">Find on the map</a>
+    </div>
+  </div> 
+
   <%= f.submit "Submit", :class=>'btn btn-primary' %>
 <% end %>
+
+<div id="map" style="width:700px; height:500px; margin-left:80px;"></div>
+
+

@@ -41,9 +41,9 @@ class PlacesController < ApplicationController
 
   def prepare_place
     @place = Place.find(params[:id])
-  end  
+  end
 
   def place_params
-    params.require(:place).permit(:title, :address)
+    params.require(:place).permit(:title, :address, :latitude, :longitude)
   end
 end
